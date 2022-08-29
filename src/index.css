@@ -1,0 +1,14 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+nav {
+  padding: 0 1rem;
+}
+
+.content{
+  min-height: calc(100vh - 70px - 64px);
+  padding: 1.5rem 0;
+}
