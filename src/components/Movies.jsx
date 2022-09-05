@@ -12,7 +12,7 @@ function Movies (props) {
                {movies.length ? (
                    movies.map((movie) => <Movie key={movie.imdbID} {...movie} />)
                ) : (
-            // если нет Nothing found<
+            // если нет  выводим Nothing found<
                    <h4>Nothing found</h4>
         )}
     </div>

@@ -1,18 +1,18 @@
 import React from 'react';
 
 class Search extends React.Component {
-    state = {
-        search: '',
-        type: 'all',          
-    };
+        state = {
+            search: '',
+            type: 'all',
+        };
 
-    // вызываем метод searchMovies и передаём ему текущий state.
-    handlekey = (event) => {
-        if (event.key === 'Enter') {
+        handleKey = (event) => {
+            if (event.key === 'Enter') {
 // если нажат Enter вызываем метод searchMovies и передаём ему текущие state и type
-            this.props.searchMovies(this.state.search, this.state.type);
-        }
-    };
+                this.props.searchMovies(this.state.search);
+            }
+        };
+
 
     handleFilter = (event) => {
         this.setState(
@@ -29,20 +29,28 @@ class Search extends React.Component {
 
     render() {
         return (
-            <div className='row'>
-            <div className='input-field'>
-            <input
-                 className='validate'
-                 placeholder='search'
-                 type='search'
-                 value={this.state.search}
-                //  обновляем поле search на e.target.value
-                 onChange={(e) => this.setState({search: e.target.value})}
-                 onkeyDown={this.handleKey}
-           />
+            <div className="row">
+                <div className="input-field">
+                    <input
+                        className="validate"
+                        placeholder="search"
+                        type="search"
+                        value={this.state.search}
+                        onChange={(e) =>
+                            this.setState({ search: e.target.value })
+                        }
+                        onKeyDown={this.handleKey}
+                    />
            {/* кнопкой вызываем метод searchMovies и передаём ему текущие state и type */}
            {/* className='btn search-btn' - добавляем стиль абсолютное позиционирование */}
-           <button className='btn search-btn' onclick={() => this.props.searchMovies(this.state.search, this.state.type)}>Search</button>
+                    <button
+                        className="btn search-btn"
+                        onClick={() =>
+                            this.props.searchMovies(this.state.search, this.state.type)
+                        }
+                    >
+                        Search
+                    </button>
         </div>
         <div>
             <label>
@@ -67,7 +75,7 @@ class Search extends React.Component {
                     //  если в state стоит movie выведется данное значение, переключения страниц под срокой поиска
                     checked={this.state.type === 'movie'}                    
                />
-                     <span>Movies only</span>
+               <span>Movies only</span>
             </label>
             <label>
                 <input
