@@ -18,11 +18,17 @@ class Main extends React.Component {
 // this.setState({movies: data.Search})) методом setState перекладываем в movies данные data котрые расположены под в ключе Search
 // 78584b3c&s - ключ с сайта omdbapi.com
     componentDidMount() {
-        fetch('http://www.omdbapi.com/?apikey=78584b3c&s=matrix')
+        fetch('https://www.omdbapi.com/?apikey=78584b3c&s=matrix')
             .then((response) => response.json())
             .then((data) => this.setState({ movies: data.Search, loading: false })
-        );
+           )
+        // /добавляем исключения
+            .catch((err) => {
+                console.error(err);
+                this.setState({ loading: false })
+            })
     }
+    
 
 // функция для обновления state, принимает параметры str(поисковая строка), которая приходит с сайта с фильмами и type со значением 'all'
 // this.setState({movies: data.Search})) методом setState перекладываем в movies данные data котрые расположены под в ключе Search
@@ -33,8 +39,12 @@ class Main extends React.Component {
         fetch(`https://www.omdbapi.com/?apikey=78584b3c&s=${str}${type !== 'all' ? `&type=${type}` : ''}`)
              .then(response => response.json())
              .then(data => this.setState({movies: data.Search, loading: false })
-        );
-
+        )
+            // /добавляем исключения
+            .catch((err) => {
+                console.error(err);
+                this.setState({ loading: false })
+            });
     };
 
     render() {
