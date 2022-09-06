@@ -2,7 +2,7 @@
   "name": "kinosite",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://per-mail.github.io/react_movies_myproject",
+  "homepage": "https://per-mail.github.io/react_movies_project",
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
