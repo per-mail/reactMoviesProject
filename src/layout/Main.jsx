@@ -4,7 +4,7 @@ import {Search} from '../components/Search'
 import {Preloader} from '../components/Preloader';
 
 
-
+const API_KEY = process.env.REACT_APP_API_KEY;
 
 class Main extends React.Component {
     state = {
@@ -18,7 +18,7 @@ class Main extends React.Component {
 // this.setState({movies: data.Search})) методом setState перекладываем в movies данные data котрые расположены под в ключе Search
 // 78584b3c&s - ключ с сайта omdbapi.com
     componentDidMount() {
-        fetch('https://www.omdbapi.com/?apikey=78584b3c&s=matrix')
+        fetch('https://www.omdbapi.com/?apikey=${API_KEY}&s=matrix')
             .then((response) => response.json())
             .then((data) => this.setState({ movies: data.Search, loading: false })
            )
@@ -36,7 +36,7 @@ class Main extends React.Component {
 // в начале исполненнения функции активируем загрузку, в конце переводим в значение false 
         this.setState({loading: true})
         //если значение ключа type не равно 'all', получаем данные по дополнительному get - параметру type}
-        fetch(`https://www.omdbapi.com/?apikey=78584b3c&s=${str}${type !== 'all' ? `&type=${type}` : ''}`)
+        fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&s=${str}${type !== 'all' ? `&type=${type}` : ''}`)
              .then(response => response.json())
              .then(data => this.setState({movies: data.Search, loading: false })
         )
