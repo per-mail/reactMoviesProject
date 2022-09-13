@@ -34,8 +34,8 @@ const Search = (props) => {
                         onChange={(e) => setSearch(e.target.value)}
                         onKeyDown={handleKey}
                     />
-           {/* кнопкой вызываем метод searchMovies и передаём ему текущие state и type */}
-           {/* className='btn search-btn' - добавляем стиль абсолютное позиционирование */}
+{/* кнопкой вызываем метод searchMovies и передаём ему текущие state и type */}
+{/* className='btn search-btn' - добавляем стиль абсолютное позиционирование */}
                     <button
                         className="btn search-btn"
                         onClick={() =>
